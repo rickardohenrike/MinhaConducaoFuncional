@@ -20,7 +20,7 @@ function listarContatos() {
 
     });
 
-    $("#conteudoTabelaContatos").html(html);
+    $("#conteudoTabelaContatosEstudante").html(html);
 
   });
 
@@ -32,15 +32,15 @@ function listarContatosResponsavel() {
 
     var html = "";
 
-    contatos.forEach(function(contato){
+    contatos.forEach(function(contatoresp){
 
     	html += '<tr>'+             
-			  '<td>'+contato.val().nome+'</td>'+
-              '<td>'+contato.val().telefone+'</td>'+
-              '<td class="hidden-xs">'+contato.val().email+'</td>'+
-			  '<td>'+contato.val().endereco+'</td>'+
-			  '<td><button onclick=\'seditarContato("'+ contato.key +'")\' class="btn btn-warning" href="listarresponsavel.html"><span class="glyphicon glyphicon-pencil"></span></button></td>'+
-              '<td><button onclick=\'removerContato("'+ contato.key +'")\' class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>'+
+			  '<td>'+contatoresp.val().nome+'</td>'+
+              '<td>'+contatoresp.val().telefone+'</td>'+
+              '<td class="hidden-xs">'+contatoresp.val().email+'</td>'+
+			  '<td>'+contatoresp.val().endereco+'</td>'+
+			  '<td><button onclick=\'editarContato("'+ contatoresp.key +'")\' class="btn btn-warning" href="listarresponsavel.html"><span class="glyphicon glyphicon-pencil"></span></button></td>'+
+              '<td><button onclick=\'removerContato("'+ contatoresp.key +'")\' class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>'+
             '</tr>';
 
     });
@@ -71,7 +71,7 @@ function minhasrotas() {
 
     });
 
-    $("#conteudoTabelaContatos").html(html);
+    $("#conteudoTabelaContatosRotas").html(html);
 
   });
 
@@ -112,7 +112,7 @@ function cadastrarContato() {
 
 }
 
-function removerContato(id_contato) {
+function removerContato(id_contatoresp) {
 
   var deseja_apagar = confirm("Deseja apagar?");
 
@@ -120,7 +120,7 @@ function removerContato(id_contato) {
     return false;
   }
 
-  firebase.database().ref("contatos/"+id_contato).remove()
+  firebase.database().ref("contatos/"+id_contatoresp).remove()
   .then(function(result){
 
     alert("Removido com Sucesso!");
@@ -135,24 +135,24 @@ function removerContato(id_contato) {
 
 }
 
-function editarContato(id_contato) {
+function editarContato(id_contatoresp) {
 
-  localStorage.setItem("id_contato", id_contato);
+  localStorage.setItem("id_contatoresp", id_contatoresp);
   location.href = "editar.html";
 
 }
 
 function obterContato() {
 
-  var id_contato = localStorage.getItem("id_contato");
+  var id_contatoresp = localStorage.getItem("id_contatoresp");
 
-  firebase.database().ref("contatos/"+id_contato)
-  .once("value", function(contato){
+  firebase.database().ref("contatos/"+id_contatoresp)
+  .once("value", function(contatoresp){
 
-    $("#nome").val( contato.val().nome );
-    $("#email").val( contato.val().email );
-    $("#telefone").val( contato.val().telefone );
-	$("#endereco").val( contato.val().endereco );
+    $("#nome").val( contatoresp.val().nome );
+    $("#email").val( contatoresp.val().email );
+    $("#telefone").val( contatoresp.val().telefone );
+	$("#endereco").val( contatoresp.val().endereco );
 
 
   });
@@ -161,7 +161,7 @@ function obterContato() {
 
 function confirmarEditarContato() {
 
-  var id_contato = localStorage.getItem("id_contato");
+  var id_contatoresp = localStorage.getItem("id_contatoresp");
 
 	let nome = $("#nome").val();
     let email = $("#email").val();
@@ -169,7 +169,7 @@ function confirmarEditarContato() {
 	let endereco = $("#endereco").val();
 	
 
-  	var contato = {
+  	var contatoresp = {
 		
 		nome: nome,
 		telefone: telefone,
@@ -178,11 +178,11 @@ function confirmarEditarContato() {
 		
   };
 
-  firebase.database().ref("contatos/"+id_contato).update(contato)
+  firebase.database().ref("contatos/"+id_contatoresp).update(contatoresp)
   .then(function(result){
 
       alert("Atualizado com Sucesso!");
-      location.href = "listar.html";
+      location.href = "listarresponsavel.html";
 
   })
   .catch(function(error){

@@ -83,6 +83,27 @@ function logarComGoogle() {
     });
 
 }
+function logarComGoogleResponsavel() {
+
+	var provedo =  new firebase.auth.GoogleAuthProvider();
+
+	firebase.auth().signInWithPopup(provedo)
+    .then(function(result){
+
+      localStorage.setItem("user_id", result.user.uid);
+      localStorage.setItem("user_email", result.user.email);
+
+      location.href = "localizacao.html";
+
+    })
+    .catch(function(error){
+
+      console.log(error.message);
+      alert("Erro na Autenticação com o Google");
+
+    });
+
+}
 
 function logoff() {
 
@@ -95,6 +116,16 @@ function logoff() {
 
 }
 
+function logoffresp() {
+
+  firebase.auth().signOut();
+
+  localStorage.removeItem("user_id");
+  localStorage.removeItem("user_email");
+
+  location.href = "indexresponsavel.html";
+
+}
 
 
 

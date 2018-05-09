@@ -28,13 +28,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        <a class="navbar-brand" href="inicio.html">Inicio</a>
+        <a class="navbar-brand" href="localizacao.html">Localização</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="listar.html">Estudantes</a></li>
-            <li><a href="cadastrar.html">Cadastrar</a></li>
-			<li><a href="minhasrotas.html">Minhas Rotas</a></li>
+            
             <li><a href="#" onclick="logoff()">Sair</a></li>
           </ul>
         </div>
@@ -46,7 +44,7 @@
     
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
+          center: {lat: -125.816, lng: 383.039},
           zoom: 6
         });
         var infoWindow = new google.maps.InfoWindow({map: map});
