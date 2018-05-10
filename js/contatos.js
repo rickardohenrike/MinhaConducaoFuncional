@@ -1,4 +1,4 @@
-function listarContatos() {
+function listarEstudantes() {
 
   firebase.database().ref("contatos")
   .on("value", function(contatos){
@@ -25,7 +25,7 @@ function listarContatos() {
   });
 
 }
-function listarContatosResponsavel() {
+function listarResponsaveis() {
 
   firebase.database().ref("contatos")
   .on("value", function(contatos){
@@ -100,7 +100,7 @@ function cadastrarContato() {
 	.then(function(result){
 
 		alert("Cadastrado com Sucesso!");
-		location.href = "listar.html";
+		location.href = "listarestudantes.html";
 
 	})
 	.catch(function(error){
@@ -235,7 +235,7 @@ function confirmarEditarContatoEstudante() {
   .then(function(result){
 
       alert("Atualizado com Sucesso!");
-      location.href = "listar.html";
+      location.href = "listarestudantes.html";
 
   })
   .catch(function(error){

@@ -50,7 +50,7 @@ function logar() {
 		localStorage.setItem("user_id", user.uid);
       	localStorage.setItem("user_email", user.email);
 
-	  	location.href = "listar.html";
+	  	location.href = "listarestudantes.html";
 
 	})
 	.catch(function(error){
@@ -72,7 +72,7 @@ function logarComGoogle() {
       localStorage.setItem("user_id", result.user.uid);
       localStorage.setItem("user_email", result.user.email);
 
-      location.href = "listar.html";
+      location.href = "listarestudantes.html";
 
     })
     .catch(function(error){
