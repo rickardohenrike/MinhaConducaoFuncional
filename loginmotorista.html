@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Minha Condução</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container">
+      
+      
+
+      <div class="row">
+        
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+
+          <h1>Login Motorista</h1>
+
+          <form id="formLogin">
+            
+            <div class="form-group">
+              <label for="email">E-Mail</label>
+              <input autofocus type="email" id="email" class="form-control" placeholder="E-Mail cadastrado" required>
+            </div>
+
+            <div class="form-group">
+              <label for="senha">Senha</label>
+              <input type="password" id="senha" class="form-control" placeholder="Senha cadastrada" required>
+            </div>
+
+            <div class="form-group">
+              <button type="button" onclick="logar()" class="btn btn-primary btn-block">Entrar</button>
+              
+            </div>
+
+          </form>
+
+        </div>
+
+        <div class="col-md-4"></div>
+
+      </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/contatos.js"></script>
+  </body>
+</html>
