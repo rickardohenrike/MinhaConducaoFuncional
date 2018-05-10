@@ -14,7 +14,7 @@ function listarContatos() {
               '<td>'+contato.val().escola+'</td>'+
                             '<td><a href="listarresponsavel.html" class="btn btn-default">Ir <span class="glyphicon glyphicon-search"></span></a></td>'+
 
-			  '<td><button onclick=\'editarContato("'+ contato.key +'")\' class="btn btn-warning" ><span class="glyphicon glyphicon-pencil"></span></button></td>'+
+			  '<td><button onclick=\'editarContatoEstudante("'+ contato.key +'")\' class="btn btn-warning" ><span class="glyphicon glyphicon-pencil"></span></button></td>'+
               '<td><button onclick=\'removerContato("'+ contato.key +'")\' class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>'+
             '</tr>';
 
