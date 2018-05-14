@@ -50,7 +50,7 @@ function logar() {
 		localStorage.setItem("user_id", user.uid);
       	localStorage.setItem("user_email", user.email);
 
-	  	location.href = "listarestudantes.html";
+	  	location.href = "inicio.html";
 
 	})
 	.catch(function(error){
