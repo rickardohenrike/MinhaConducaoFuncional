@@ -1,6 +1,8 @@
 function listarResponsaveis() {
 
-    firebase.database().ref("responsavel")
+    var id_estudante = localStorage.getItem('id_estudante');
+
+    firebase.database().ref("responsavel").orderByChild('cod_estudante').equalTo(id_estudante)
     .on("value", function(responsavel){
   
       var html = "";

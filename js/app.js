@@ -127,6 +127,15 @@ function logoffresp() {
 
 }
 
+/*
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    alert('logado');
+  } else {
+    alert('nao logado');
+  }
+});
+*/
 
 
 
