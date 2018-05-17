@@ -12,7 +12,7 @@ function listarEstudantes() {
 			  '<td>'+estudante.val().endereco+'</td>'+			 
               '<td>'+estudante.val().datanasc+'</td>'+
               '<td>'+estudante.val().escola+'</td>'+
-                            '<td><button onclick=\'verResponsavel("'+ estudante.key + '")\' class="btn btn-default">Ir <span class="glyphicon glyphicon-search"></span></button></td>'+
+                            '<td><a href="listarresponsavel.html" class="btn btn-default">Ir <span class="glyphicon glyphicon-search"></span></a></td>'+
 
 			  '<td><button onclick=\'editarContatoEstudante("'+ estudante.key + '")\' class="btn btn-warning" ><span class="glyphicon glyphicon-pencil"></span></button></td>'+
               '<td><button onclick=\'removerEstudante("'+ estudante.key +'")\' class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>'+
@@ -26,13 +26,6 @@ function listarEstudantes() {
 
 }
 
-function verResponsavel(id_estudante) {
-
-  localStorage.setItem('id_estudante', id_estudante);
-  location.href="listarresponsavel.html";
-
-}
-
 function removerEstudante(id_estudante, id_responsavel) {
 
     var deseja_apagar = confirm("Deseja apagar?");
@@ -42,9 +35,11 @@ function removerEstudante(id_estudante, id_responsavel) {
     }
   
     firebase.database().ref("estudante/"+id_estudante).remove()
+     
+    firebase.database().ref("responsavel/"+id_responsavel).remove()
     .then(function(result)
     {
-        
+  
       alert("Removido com Sucesso!");
   
     })
