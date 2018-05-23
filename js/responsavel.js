@@ -10,12 +10,12 @@ function listarResponsaveis() {
       responsavel.forEach(function(responsavel){
   
           html += '<tr>'+             
-                '<td>'+responsavel.val().nome+'</td>'+
-                '<td>'+responsavel.val().telefone+'</td>'+
-                '<td class="hidden-xs">'+responsavel.val().email+'</td>'+
-                '<td><button onclick=\'editarResponsavel("'+ responsavel.key +'")\' class="btn btn-warning" href="listarresponsavel.html"><span class="glyphicon glyphicon-pencil"></span></button></td>'+
-                '<td><button onclick=\'removerResponsavel("'+ responsavel.key +'")\' class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>'+
-              '</tr>';
+                    '<td>'+responsavel.val().nome+'</td>'+
+                    '<td>'+responsavel.val().telefone+'</td>'+
+                    '<td class="hidden-xs">'+responsavel.val().email+'</td>'+
+                    '<td><button onclick=\'editarResponsavel("'+ responsavel.key +'")\' class="btn btn-warning" href="listarresponsavel.html"><span class="glyphicon glyphicon-pencil"></span></button></td>'+
+                    '<td><button onclick=\'removerResponsavel("'+ responsavel.key +'")\' class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>'+
+                  '</tr>';
   
       });
   
@@ -48,7 +48,7 @@ function listarResponsaveis() {
   
   }
   
-function editarResponsavel(id_responsavel) {
+  function editarResponsavel(id_responsavel) {
 
     localStorage.setItem("id_responsavel", id_responsavel);
     location.href = "editarresponsavel.html";
@@ -65,9 +65,7 @@ function editarResponsavel(id_responsavel) {
       $("#nome").val( responsavel.val().nome );
       $("#email").val( responsavel.val().email );
       $("#telefone").val( responsavel.val().telefone );
-      
-  
-  
+
     });
   
   }
@@ -79,17 +77,13 @@ function editarResponsavel(id_responsavel) {
       let nome = $("#nome").val();
       let email = $("#email").val();
       let telefone = $("#telefone").val();
-      
-      
-  
-        var responsavel = {
-          
-          nome: nome,
-          telefone: telefone,
-          email: email,
-          endereco: endereco
-          
-    };
+
+      var responsavel = {
+        nome: nome,
+        telefone: telefone,
+        email: email,
+        endereco: endereco    
+      };
   
     firebase.database().ref("responsavel/"+id_responsavel).update(responsavel)
     .then(function(result){
