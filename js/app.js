@@ -1,14 +1,14 @@
 
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyDdh1mvOsKN881Ziwz7Cyzbr0v7xUtx1B8",
-  authDomain: "minha-conducao-oficial.firebaseapp.com",
-  databaseURL: "https://minha-conducao-oficial.firebaseio.com",
-  projectId: "minha-conducao-oficial",
-  storageBucket: "minha-conducao-oficial.appspot.com",
-  messagingSenderId: "463274889663"
-};
-firebase.initializeApp(config);
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDdh1mvOsKN881Ziwz7Cyzbr0v7xUtx1B8",
+    authDomain: "minha-conducao-oficial.firebaseapp.com",
+    databaseURL: "https://minha-conducao-oficial.firebaseio.com",
+    projectId: "minha-conducao-oficial",
+    storageBucket: "minha-conducao-oficial.appspot.com",
+    messagingSenderId: "463274889663"
+  };
+  firebase.initializeApp(config);
 
 
 
@@ -19,18 +19,18 @@ function cadastre_se() {
   var senha = $("#senha").val();
 
   if (email == "" && senha == "") {
-    alert("Preeencha os campos corretamente!");
-    return false;
+  	alert("Preeencha os campos corretamente!");
+  	return false;
   }
 
   firebase.auth().createUserWithEmailAndPassword(email, senha)
-    .then(function (user) {
+    .then(function(user){
 
       alert('Usuário criado com sucesso!');
       $('#formLogin').trigger('reset');
 
     })
-    .catch(function (error) {
+    .catch(function(error){
 
       alert('Erro ao criar usuário. Tente com outro E-Mail e use senha com 6 dígitos!');
       console.log("Erro: " + error.message)
@@ -41,33 +41,33 @@ function cadastre_se() {
 
 function logar() {
 
-  var email = $("#email").val();
-  var senha = $("#senha").val();
+	var email = $("#email").val();
+	var senha = $("#senha").val();
 
-  firebase.auth().signInWithEmailAndPassword(email, senha)
-    .then(function (user) {
+	firebase.auth().signInWithEmailAndPassword(email, senha)
+	.then(function(user){
 
-      localStorage.setItem("user_id", user.uid);
-      localStorage.setItem("user_email", user.email);
+		localStorage.setItem("user_id", user.uid);
+      	localStorage.setItem("user_email", user.email);
 
-      location.href = "inicio.html";
+	  	location.href = "inicio.html";
 
-    })
-    .catch(function (error) {
+	})
+	.catch(function(error){
 
-      alert('Usuário ou Senha Inválido!');
-      console.log("Erro: " + error.message)
+	  alert('Usuário ou Senha Inválido!');
+	  console.log("Erro: " + error.message)
 
-    });
+	});
 
 }
 
 function logarComGoogle() {
 
-  var provedor = new firebase.auth.GoogleAuthProvider();
+	var provedor =  new firebase.auth.GoogleAuthProvider();
 
-  firebase.auth().signInWithPopup(provedor)
-    .then(function (result) {
+	firebase.auth().signInWithPopup(provedor)
+    .then(function(result){
 
       localStorage.setItem("user_id", result.user.uid);
       localStorage.setItem("user_email", result.user.email);
@@ -75,7 +75,7 @@ function logarComGoogle() {
       location.href = "listarestudantes.html";
 
     })
-    .catch(function (error) {
+    .catch(function(error){
 
       console.log(error.message);
       alert("Erro na Autenticação com o Google");
@@ -85,10 +85,10 @@ function logarComGoogle() {
 }
 function logarComGoogleResponsavel() {
 
-  var provedo = new firebase.auth.GoogleAuthProvider();
+	var provedo =  new firebase.auth.GoogleAuthProvider();
 
-  firebase.auth().signInWithPopup(provedo)
-    .then(function (result) {
+	firebase.auth().signInWithPopup(provedo)
+    .then(function(result){
 
       localStorage.setItem("user_id", result.user.uid);
       localStorage.setItem("user_email", result.user.email);
@@ -96,7 +96,7 @@ function logarComGoogleResponsavel() {
       location.href = "localizacao.html";
 
     })
-    .catch(function (error) {
+    .catch(function(error){
 
       console.log(error.message);
       alert("Erro na Autenticação com o Google");
