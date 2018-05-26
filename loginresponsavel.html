@@ -3,18 +3,12 @@
 
   <head>
 
-    <style>
-    .tex{
-      color : white;
-      text-shadow: #000 2px 3px 2px;  
-    }
-    </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Minha Condução - Home</title>
+    <title>Login - Responsável</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,83 +19,44 @@
 
     <!-- Custom styles for this template -->
     <link href="css/business-casual.min.css" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
     <script src="js/app.js"></script>
     <script src="js/contatos.js"></script>
+
+    <!-- Navbar -->
+    <script>
+      $(document).ready(function () {
+        $("#bootstrapnav").load("inc/bootstrapnav.html");
+      });
+    </script>
+
   </head>
 
   <body>
 
- 
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">´Quem somos ?</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item active px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="index.html">Home
-                    <span class="sr-only">(current)</span>
-                </a>
-                </li>
-                <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="about.html">Quem somos ?</a>
-                </li>
-                <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="loginmotorista.html"> Motorista </a>
-                <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="loginresponsavel.html">Responsável</a>
-                </li>
-            </ul>
-            </div>
-        </div>
-    </nav>
+    <div id="bootstrapnav"></div>
 
     <div class="container">
-      
-      
-
       <div class="row">
-        
-        <div class="col-md-4"></div>
-
-        <div class="col-md-4">
-<br> </br>
-        <center>  <h1 class="tex" >Login Responsável</h1></center>
-
-         
-		 <br> </br>
-		 <br> </br>
-		 <form id="formLogin">
-		 
-		 
-            
-        
+        <div class="col-4"></div>
+        <div class="col-4 text-center">
+          <h1 class="text-white">Login Responsável</h1>
+          <form id="formLogin">
             <button type="button" onclick="logarComGoogleResponsavel() " class="btn btn-danger btn-block">Logar com Google</button>
-            </div>
-
-          </form> 
-
+          </form>
         </div>
-
-        <div class="col-md-4"></div>
-
+        <div class="col-4"></div>
       </div>
-
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-
-    <script src="js/app.js"></script>
-    <script src="js/contatos.js"></script>
   </body>
+
 </html>
