@@ -29,3 +29,7 @@ function minhasrotas() {
      });
     
 };
+
+function setLocation(x, y) {
+  
+}
