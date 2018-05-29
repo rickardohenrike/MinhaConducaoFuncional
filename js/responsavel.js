@@ -86,8 +86,8 @@ function editarResponsavel(id_responsavel) {
           
           nome: nome,
           telefone: telefone,
-          email: email,
-          endereco: endereco
+          email: email
+         
           
     };
   
