@@ -1,0 +1,58 @@
+#navbar .navbar-inverse{
+    background: rgba(241, 232, 71, 0.8);
+    border:none;
+    -webkit-box-shadow: 1px 1px 20px 3px #b3b0b0;
+    box-shadow: 1px 1px 20px 3px #b3b0b0;
+}
+
+#navbar li a{
+   color:black;
+}
+.navbar-brand{
+    color: black!important;
+}
+
+.card{
+    width:100%;
+    height:100%;
+    background: #f4ed6c;
+    margin:10px;
+    padding:5px;
+    transition:0.3s;
+    border-radius:3px;
+}
+
+.card a{
+    color:black;
+    width: 100%!important;
+    display: block;
+    position: relative;
+    z-index: 100;
+    height: 45px;
+}
+.card:hover{
+    background: rgba(0, 0, 0, 0.8);
+    transform:scale(1.2);
+    
+}
+.card:hover a{
+    text-decoration:none;
+    color:white;
+
+}
+
+@media (max-width:1000px){
+    .card{
+        width: 50%;
+        height:70px;
+        background: #f4ed6c;
+        margin:10px;
+        padding:5px;
+        transition:0.3s;
+    }
+    .card .card-body{
+        height:100%;
+        vertical-align:middle;
+        padding-top: 17.5px;
+    }
+}

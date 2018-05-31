@@ -8,15 +8,15 @@ function listarEstudantes() {
     estudante.forEach(function(estudante){
 
     	html += '<tr>'+             
-        '<td><button onclick=\'addRota("'+ estudante.key + '")\' class="btn btn-default">Add na Rota <span class="glyphicon glyphicon-search"></span></button></td>'+
-        '<td>'+estudante.val().nomeest+'</td>'+
-			  '<td>'+estudante.val().endereco+'</td>'+			 
-        '<td>'+estudante.val().datanasc+'</td>'+
-        '<td>'+estudante.val().escola+'</td>'+
-        '<td><button onclick=\'verResponsavel("'+ estudante.key + '")\' class="btn btn-default">Ir <span class="glyphicon glyphicon-search"></span></button></td>'+
-        '<td><button onclick=\'editarContatoEstudante("'+ estudante.key + '")\' class="btn btn-warning" ><span class="glyphicon glyphicon-pencil"></span></button></td>'+
-        '<td><button onclick=\'removerEstudante("'+ estudante.key +'")\' class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>'+
-            '</tr>';
+              '<td><button onclick=\'addRota("'+ estudante.key + '")\' class="btn btn-default">Add na Rota <span class=" glyphicon glyphicon-plus"></span></button></td>'+
+              '<td>'+estudante.val().nomeest+'</td>'+
+              '<td>'+estudante.val().endereco+'</td>'+			 
+              '<td>'+estudante.val().datanasc+'</td>'+
+              '<td>'+estudante.val().escola+'</td>'+
+              '<td><button onclick=\'verResponsavel("'+ estudante.key + '")\' class="btn btn-default">Ir <span class="glyphicon glyphicon-search"></span></button></td>'+
+              '<td><button onclick=\'editarContatoEstudante("'+ estudante.key + '")\' class="btn btn-warning" ><span class="glyphicon glyphicon-pencil"></span></button></td>'+
+              '<td><button onclick=\'removerEstudante("'+ estudante.key +'")\' class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>'+
+              '</tr>';
 
     });
 
@@ -56,28 +56,48 @@ function verResponsavel(id_estudante) {
 }
 
 function removerEstudante(id_estudante, id_responsavel) {
-
+  
     var deseja_apagar = confirm("Deseja apagar?");
   
     if (deseja_apagar==false) {
       return false;
     }
+   
+   firebase.database().ref("rota")
+   .orderByChild('cod_estudante').equalTo(id_estudante).on("child_added",function(snapshot){
+    
+    console.log(snapshot.key)
+
+      firebase.database().ref("rota/"+snapshot.key).remove()
+      .then(function(result)
+      {          
+        console.log("Rota removida com Sucesso!");
+        firebase.database().ref("estudante/"+id_estudante).remove()
+        .then(function(result)
+        {
+            
+          alert("Removido com Sucesso!");
+
+        })
+        .catch(function(error){
+
+          alert("Erro ao remover");
+          console.log(error.message);
+
+        });
+      })
+      .catch(function(error){
+    
+        alert("Erro ao remover");
+        console.log(error.message);
+    
+      });
+      
+  });
+
   
-    firebase.database().ref("estudante/"+id_estudante).remove()
-    .then(function(result)
-    {
-        
-      alert("Removido com Sucesso!");
-  
-    })
-    .catch(function(error){
-  
-      alert("Erro ao remover");
-      console.log(error.message);
-  
-    });
-  
-  }
+
+}
 function editarContatoEstudante(id_estudante) {
 
     localStorage.setItem("id_estudante", id_estudante);
