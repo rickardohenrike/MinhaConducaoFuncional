@@ -16,16 +16,18 @@ function cadastrarContato() {
 		escola: escola,
 		endereco: endereco
 	};
-	var responsavel = {
-		nome: nome,
-		telefone: telefone,
-		email: email,
-		cod_estudante: result.key
-	};
+
 
 	firebase.database().ref("estudante").push(estudante)
 		.then(function (result) {
+
 			console.log(result.key);
+			var responsavel = {
+				nome: nome,
+				telefone: telefone,
+				email: email,
+				cod_estudante: result.key
+			};
 
 			firebase.database().ref("responsavel").push(responsavel)
 				.then(function (result) {
