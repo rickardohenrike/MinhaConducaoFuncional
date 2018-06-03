@@ -63,39 +63,44 @@ function removerEstudante(id_estudante, id_responsavel) {
       return false;
     }
    
-   firebase.database().ref("rota")
+    
+  
+  
+    firebase.database().ref("rota")
    .orderByChild('cod_estudante').equalTo(id_estudante).on("child_added",function(snapshot){
     
     console.log(snapshot.key)
 
-      firebase.database().ref("rota/"+snapshot.key).remove()
-      .then(function(result)
-      {          
-        console.log("Rota removida com Sucesso!");
-        firebase.database().ref("estudante/"+id_estudante).remove()
-        .then(function(result)
-        {
-            
-          alert("Removido com Sucesso!");
+    firebase.database().ref("estudante/"+id_estudante).remove()
+    .then(function(result)
+    {
+        
+      alert("Removido com Sucesso!");
 
-        })
-        .catch(function(error){
+    })
+    .catch(function(error){
 
-          alert("Erro ao remover");
-          console.log(error.message);
+      alert("Erro ao remover");
+      console.log(error.message);
 
-        });
-      })
-      .catch(function(error){
+    });  
     
-        alert("Erro ao remover");
-        console.log(error.message);
-    
-      });
+    firebase.database().ref("rota/"+snapshot.key).remove()
+    .then(function(result)
+    {          
+      console.log("Rota removida com Sucesso!");
+
+    })
+    .catch(function(error){
+  
+      alert("Erro ao remover");
+      console.log(error.message);
+  
+  
       
   });
 
-  
+});
 
 }
 function editarContatoEstudante(id_estudante) {
