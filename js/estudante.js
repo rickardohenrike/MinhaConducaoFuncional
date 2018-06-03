@@ -28,9 +28,15 @@ function listarEstudantes() {
 
 
 function addRota(estudante){
-  var estudanteRota = {
+
+var estudanteRota = {
     cod_estudante : estudante
   }
+
+  if (estudanteRota == estudante ){
+    alert("Já existe ");
+
+}
   firebase.database().ref("rota").push(estudanteRota)
 	.then(function(result){
   console.log(result.key);
@@ -55,7 +61,7 @@ function verResponsavel(id_estudante) {
 
 }
 
-function removerEstudante(id_estudante, id_responsavel) {
+function removerEstudante(id_estudante) {
   
     var deseja_apagar = confirm("Deseja apagar?");
   
@@ -66,14 +72,30 @@ function removerEstudante(id_estudante, id_responsavel) {
     
   
   
-    firebase.database().ref("rota")
-   .orderByChild('cod_estudante').equalTo(id_estudante).on("child_added",function(snapshot){
-    
-    console.log(snapshot.key)
+  
 
     firebase.database().ref("estudante/"+id_estudante).remove()
     .then(function(result)
     {
+      firebase.database().ref("rota")
+      .orderByChild('cod_estudante').equalTo(id_estudante).on("child_added",function(snapshot){
+       
+
+        firebase.database().ref("rota/"+snapshot.key).remove()
+        .then(function(result)
+        {          
+          console.log("Rota removida com Sucesso!");
+    
+        })
+        .catch(function(error){
+      
+          alert("Erro ao remover");
+          console.log(error.message);
+      
+      
+          
+      });
+
         
       alert("Removido com Sucesso!");
 
@@ -85,20 +107,7 @@ function removerEstudante(id_estudante, id_responsavel) {
 
     });  
     
-    firebase.database().ref("rota/"+snapshot.key).remove()
-    .then(function(result)
-    {          
-      console.log("Rota removida com Sucesso!");
-
-    })
-    .catch(function(error){
   
-      alert("Erro ao remover");
-      console.log(error.message);
-  
-  
-      
-  });
 
 });
 
