@@ -36,7 +36,7 @@ function minhasrotas() {
   
 };
 
-function minhasrotas() {
+function minhasrotas2() {
 
   firebase.database().ref("rota").orderByChild('cod_estudante')
   .on("value", function(estudante){
