@@ -61,7 +61,7 @@ function verResponsavel(id_estudante) {
 
 }
 
-function removerEstudante(id_estudante, id_responsavel) {
+function removerEstudante(id_estudante) {
 
 	var deseja_apagar = confirm("Deseja apagar?");
 
@@ -69,8 +69,8 @@ function removerEstudante(id_estudante, id_responsavel) {
 		return false;
 	}
 
-	firebase.database().ref("rota")
-		.orderByChild('cod_estudante').equalTo(id_estudante).on("child_added", function (snapshot) {
+	firebase.database().ref("estudante")
+		.orderByChild('cod_estudante').equalTo(id_estudante).on("value", function (snapshot) {
 
 			console.log(snapshot.key)
 
