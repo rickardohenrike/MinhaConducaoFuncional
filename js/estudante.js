@@ -101,9 +101,8 @@ function removerEstudante(id_estudante, id_responsavel) {
 
 
 
-});
+};
 
-}
 function editarContatoEstudante(id_estudante) {
 
 	localStorage.setItem("id_estudante", id_estudante);

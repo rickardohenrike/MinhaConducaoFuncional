@@ -140,5 +140,33 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
 
+var x, y;
+var pos;
 
+function error(erro){
+  console.log('Erro!');
+  console.log(erro);
+};
+function map(){
+  var ref = firebase.database().ref('rota/localizacao');
+  ref.on
+  var localizacao;
+  ref.on("value", function(data){
+    x = data.child("x").val();
+    y = data.child("y").val();
+    console.log(x,y);
+  }, error);
 
+pos = google.maps.LatLng(x, y);
+console.log(pos);
+
+// function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: new google.maps.LatLng(x, y),
+    zoom: 14
+  });
+  var infoWindow = new google.maps.InfoWindow({map: map});
+  infoWindow.setPosition(pos);
+      infoWindow.setContent('A van está aqui aqui!');
+      map.setCenter(pos);
+}

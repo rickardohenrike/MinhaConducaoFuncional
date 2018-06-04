@@ -9,10 +9,16 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEH8KbyHwoALNjiRLan9QZDUFMYJBRu5k"></script>
+
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEH8KbyHwoALNjiRLan9QZDUFMYJBRu5k&callback=initMap"></script> -->
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
     <script src="js/app.js"></script>
     <script src="js/geo.js"></script>
-    <script> getDirectionsLocation(); </script>
+    <script>
+    $(document).ready(function(){
+      initMap();
+      });
+     </script>
 
 
     <style>
@@ -42,6 +48,30 @@
     </nav>
 
    <div id="map"></div>
+
+   <script>
+     van = 'img/vanmarker.png';
+    function initMap() {
+      // -12.967335, -38.437813
+      var uluru = {lat: -12.967335, lng: -38.437813};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14,
+        center: uluru
+      });
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: map,
+        icon: van
+      });
+
+      var infoWindow = new google.maps.InfoWindow({
+        content: 'Sua van está aqui!'
+      });
+      marker.addListener('click', function(){
+        infoWindow.open(map, marker);
+      })
+    }
+  </script>
 
   </body>
 </html>

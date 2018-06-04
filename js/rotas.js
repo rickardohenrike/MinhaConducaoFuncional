@@ -20,7 +20,7 @@ function minhasrotas() {
                                  '<td>'+estudante.val().escola +'</td>'+
                                  '<td><a href="listarresponsavel.html" class="btn btn-default">Ir <span class="glyphicon glyphicon-search"></span></a></td>'+
                                  '<td><button onclick=\'removerEstudanteRota("'+ estudante.key +'")\' class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>'+
-                                 '<td> <input type="checkbox" class="form-check-input" id="exampleCheck1"> <label class="form-check-label" for="exampleCheck1">Faltou</label></td>'+
+                                //  '<td> <input type="checkbox" class="form-check-input" id="exampleCheck1"> <label class="form-check-label" for="exampleCheck1">Faltou</label></td>'+
 
                                  '</tr>';
 
@@ -32,7 +32,7 @@ function minhasrotas() {
 
     });
 
-function removerEstudanteRota(id_estudante, id_responsavel) {
+function removerEstudanteRota(id_estudante) {
 
     var deseja_apagar = confirm("Deseja apagar?");
 
