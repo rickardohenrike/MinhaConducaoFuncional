@@ -107,7 +107,7 @@ function logarComGoogleResponsavel() {
 
 function logoff() {
 
-  console.log('teste');
+  // console.log('teste');
   firebase.auth().signOut();
 
   localStorage.removeItem("user_id");

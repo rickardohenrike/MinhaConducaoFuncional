@@ -13,16 +13,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-    
+
     <script src="js/app.js"></script>
     <script src="js/contatos.js"></script>
     <script src="js/estudante.js"></script>
     <script src="js/responsavel.js"></script>
     <script src="js/rotas.js"></script>
+    <script src="js/geo.js"></script>
     <script>
       $(document).ready(function(){
         $("#navbar").load("inc/navbar.html");
         minhasrotas();
+        getLocation();
       });
     </script>
 
@@ -32,7 +34,7 @@
     <nav id="navbar"></nav>
 
     <div class="container">
-      
+
       <h1>Rota</h1>
 
       <table class="table table-striped">
@@ -46,15 +48,19 @@
             <th>Presença</th>
           </tr>
         </thead>
-      
         <tbody id="conteudoTabelaEstudantesRotas">
-            
+
         </tbody>
-        
+
       </table>
       <div class="form-group">
+<<<<<<< HEAD
           
         <button type="button" onclick="limparRota()" class="btn btn-danger btn-block">Limpar Rota</button>
+=======
+
+        <button type="button" onclick="limparRota()" class="btn btn-primary">Limpar Rota</button>
+>>>>>>> dev
       </div>
     </div>
 
